@@ -1,7 +1,7 @@
 apiv2_admin_job_title:
   path: /api/v2/admin/job-titles/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, PUT, POST ]
   defaults:
     _api: OrangeHRM\Admin\Api\JobTitleAPI
 

@@ -178,7 +178,7 @@ class Request
     /**
      * @var string
      */
-    protected $method;
+    public $method;
 
     /**
      * @var string
