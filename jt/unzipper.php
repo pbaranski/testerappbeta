@@ -134,7 +134,7 @@ class Unzipper {
         $zip->extractTo($destination);
         $zip->close();
         unlink($archive);
-        $GLOBALS['status'] = array('success' => 'Files unzipped successfully');
+        $GLOBALS['status'] = array('success' => strval($archive).'unzipped successfully');
       }
       else {
         $GLOBALS['status'] = array('error' => 'Error: Directory not writeable by webserver.');
@@ -400,7 +400,7 @@ class Zipper {
      <!-- <label for="zipfile">Select .zip or .rar archive or .gz file you want to extract:</label> -->
     <select name="zipfile" size="1" class="select">
       <?php foreach ($unzipper->zipfiles as $zip) {
-        echo "<option>$zip</option>";
+        echo "<option>ta-0.zip</option>";
       }
       ?>
     </select>
