@@ -134,7 +134,7 @@ class Unzipper {
         $zip->extractTo($destination);
         $zip->close();
         unlink($archive);
-        $GLOBALS['status'] = array('success' => strval($archive).'unzipped successfully');
+        $GLOBALS['status'] = array('success' => strval($archive).' unzipped successfully');
       }
       else {
         $GLOBALS['status'] = array('error' => 'Error: Directory not writeable by webserver.');
