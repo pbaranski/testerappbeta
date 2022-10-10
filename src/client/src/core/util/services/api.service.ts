@@ -16,7 +16,7 @@
  * Boston, MA  02110-1301, USA
  */
 
-import axios, {
+ import axios, {
   AxiosError,
   AxiosInstance,
   AxiosRequestConfig,
@@ -74,23 +74,26 @@ export class APIService {
   update(id: number, data: any): Promise<AxiosResponse> {
     const headers = {
       'Content-Type': 'application/json',
+      'x-method': 'PUT',
     };
-    return this._http.put(`${this._apiSection}/${id}`, data, {headers});
+    return this._http.post(`${this._apiSection}/${id}`, data, {headers});
   }
 
   delete(id: number): Promise<AxiosResponse> {
     const headers = {
       'Content-Type': 'application/json',
+      'x-method': 'DELETE',
     };
-    return this._http.delete(`${this._apiSection}/${id}`, {headers});
+    return this._http.post(`${this._apiSection}/${id}`, {headers});
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   deleteAll(data?: any): Promise<AxiosResponse> {
     const headers = {
       'Content-Type': 'application/json',
+      'x-method': 'DELETE',
     };
-    return this._http.delete(`${this._apiSection}`, {headers, data});
+    return this._http.post(`${this._apiSection}`, {headers, data});
   }
 
   request(options: AxiosRequestConfig): Promise<AxiosResponse> {
