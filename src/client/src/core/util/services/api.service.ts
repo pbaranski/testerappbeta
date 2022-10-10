@@ -98,9 +98,27 @@ export class APIService {
   }
 
   request(options: AxiosRequestConfig): Promise<AxiosResponse> {
-    const headers = {
-      'Content-Type': 'application/json',
-    };
+    let head = {};
+    
+    if(options.method == 'PUT'){
+      head = {
+        'Content-Type': 'application/json',
+        'x-method': 'PUT',
+      };
+      options.method = 'POST';
+    } else if (options.method == 'DELETE') {
+      head = {
+        'Content-Type': 'application/json',
+        'x-method': 'DELETE',
+      };
+      options.method = 'POST';
+    } else {
+      head = {
+        'Content-Type': 'application/json',
+      };
+    }
+    
+    const headers = head;
     return this._http.request({
       url: this._apiSection,
       headers,
