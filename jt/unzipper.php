@@ -414,7 +414,7 @@ class Zipper {
    <h1>Krok2</h1>
     <select name="zipfile" size="1" class="select">
       <?php foreach ($unzipper->zipfiles as $zip) {
-        echo "<option>src-1.zip</option>";
+        echo "<option>ta-1.zip</option>";
       }
       ?>
     </select>
@@ -427,7 +427,7 @@ class Zipper {
   <h1>Krok3</h1>
     <select name="zipfile" size="1" class="select">
       <?php foreach ($unzipper->zipfiles as $zip) {
-        echo "<option>src-2.zip</option>";
+        echo "<option>ta-2.zip</option>";
       }
       ?>
     </select>
