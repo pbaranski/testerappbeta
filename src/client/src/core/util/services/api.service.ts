@@ -84,7 +84,8 @@ export class APIService {
       'Content-Type': 'application/json',
       'x-method': 'DELETE',
     };
-    return this._http.post(`${this._apiSection}/${id}`, {headers});
+    const data = {};
+    return this._http.post(`${this._apiSection}/${id}`, data, {headers});
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -93,7 +94,7 @@ export class APIService {
       'Content-Type': 'application/json',
       'x-method': 'DELETE',
     };
-    return this._http.post(`${this._apiSection}`, {headers, data});
+    return this._http.post(`${this._apiSection}`, data, {headers});
   }
 
   request(options: AxiosRequestConfig): Promise<AxiosResponse> {
