@@ -1,19 +1,22 @@
-# Tester App - test enterprise app
-
-- TODO: Mailing client verification  
-- TODO: Updated REST API docs
-- TODO: Preparing production repo
-- TODO: Remove social icons login window
-- TODO: Branding
-- TODO: Licence
+# Tester App
+Upskill testing skills in enterprise app with free deploy
+### Example APP
+- http://testerapp.epizy.com
+- for credentials contact jaktestowac.pl
 
 ### API: 
 - https://orangehrm.github.io/orangehrm-api-doc/#api-Employee-UpdateEmployeeDetails
 
-### Example APP
-- http://testerapp.epizy.com
+# Table of Contents
+1. [Web installation](#webinstallation)
+2. [Setup APP](#setup-app)
+3. [Local instalation](#local-instalation)
+4. [Development](#fourth-examplehttpwwwfourthexamplecom)
+5. [Fork development](#fork-development)
+6. [Release](#Release)
+7. [TODO](#todo)
 
-# Installing in remote:
+# Web installation:
 1. Create account: infinityfree.net (email confirmation required)
 2. Create new `Account`
 3. Choose domain (any name what is not reserved)
@@ -50,14 +53,17 @@ copy URL to your application (Label)
 21. Go to your site URL 
 22. Go to SETUP APP procedure and use provided data
 
-## Certificate
+## Certificate   
+Some steps can take long time to set (couple of hours)
 1. Go to Free SSL Certificates
 2. New SSL Certificate
 3. Add doman to firld and Continue
 4. Choose proveder (Recomended)
-5. Wait until change Not Ready state to `???`
-6. When `???` then Setup CNAME Record Automatically
-
+5. Cilck `Setup CNAME Record Automatically`
+6. Wait until change `Not Ready` state to `Ready`
+7. Click `Request Ceritificate`
+8. Then `Install SSL Certificate Automatically`
+9. Now your site is available under https
 
 # Setup APP
 1. Welcome:   
@@ -94,7 +100,6 @@ copy URL to your application (Label)
 	Launch OrangeHRM
 	- Login with  provided username and password
 
-
 # Local instalation:
 for app name orangehrm-5.1/
 1. Install xampp 
@@ -128,10 +133,7 @@ for app name orangehrm-5.1/
 
 Setup app under http://localhost/orangehrm-5.1/
 
-
-
-
-# DEVELOPMENT
+# Development
 1. Xdebug:
     - Go to https://xdebug.org/wizard
     - Start Xampp Apache
@@ -176,13 +178,13 @@ Setup app under http://localhost/orangehrm-5.1/
       - !!!Should work
 
 
-# APP DEVELOPMENT:
+# Fork development
 1. If freash form forked repo 
     - check gitignore form our fork repo in
     - C:\xampp\htdocs\orangehrm-5.1\src\client\.gitignore
     - C:\xampp\htdocs\orangehrm-5.1\.gitignore
     - C:\xampp\htdocs\orangehrm-5.1\installer\client
-2. Check you can debug (DEVELOPMENT completed)
+2. Check you can debug (step Development completed)
     - install yarn
     - https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
 3. Do changes in C:\xampp\htdocs\orangehrm-5.1\src\client
@@ -197,9 +199,9 @@ Setup app under http://localhost/orangehrm-5.1/
     - c:/xampp/htdocs/orangehrm-5.1/src/plugins/orangehrmCorePlugin/Controller/Rest/V2/AbstractRestController.php
     - routes.yaml (adding POST where PUT and DELETE)
     - unprotected variables: protected $method; protected $headers = []; protected HttpRequest $httpRequest;
-    - logo, favico and copy (see pranding commit)
+    - logo, favico and copy (see commit regarding this change)
 
-# RELEASE
+# Release
 1. Download repo from GH
 2. Unzip
 3. Go to folder and then to src
@@ -216,11 +218,10 @@ whole jt directory
 10. Synchronize it with folder jt in repo
 11. Push to repo
 
-
-
-
-
-
-
-
-
+# TODO
+- TODO: Mailing client verification  
+- TODO: Updated REST API docs
+- TODO: Preparing production repo
+- TODO: Remove social icons login window
+- TODO: Branding
+- TODO: Licence
