@@ -32,8 +32,7 @@ Upskill testing skills in enterprise app with free deploy
 11. Upload via uplad icon:  
 - urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-0.zip?raw=true  
 - urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-1.zip?raw=true  
-- urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-1.zip?raw=true  
-- urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-1.zip?raw=true  
+- urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-2.zip?raw=true  
 - urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/uz.php
 12. Go to unzziper page http://[app url]/uz.php
 13. Click unzip `ta-0` and wait till green header appear with file name 
@@ -223,5 +222,4 @@ whole jt directory
 - TODO: Updated REST API docs
 - TODO: Preparing production repo
 - TODO: Remove social icons login window
-- TODO: Branding
 - TODO: Licence
