@@ -204,7 +204,25 @@ Setup app under http://localhost/orangehrm-5.1/
 1. Download new release package zip https://github.com/orangehrm/orangehrm/releases/
 2. Unpack it 
 3. Make new branch with jt fork
-4. TODO
+4. Move folder by folder form unpacked zip with new version (src folder: go inside and make that way)
+5. Watch for grafic changes favico etc
+6. Check changes for:
+	- fav.ico
+	- api.service.ts
+		- C:\xampp\htdocs\orangehrm-5.1\src\client\src\core\util\services\api.service.ts
+	- Commit: JT Support for login
+		- C:\xampp\htdocs\orangehrm-5.1\src\vendor\symfony\http-foundation\ParameterBag.php 
+				public $parameters;
+		- C:\xampp\htdocs\orangehrm-5.1\src\plugins\orangehrmAuthenticationPlugin\config\routes.yaml
+				```auth_token:
+				path: /auth/token
+				controller: OrangeHRM\Authentication\Controller\ValidateController::token
+				methods: [ POST ]```
+	- Commit: JT httpkernell 
+	- Commit: Logos changed
+	- Commit: JT routes updated
+	- Commit: JT Request enabled to check header
+7. Build
 
 # Release
 1. Download repo from GH
