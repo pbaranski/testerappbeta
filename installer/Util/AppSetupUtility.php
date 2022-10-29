@@ -24,6 +24,8 @@ use Doctrine\DBAL\Types\Types;
 use Exception;
 use InvalidArgumentException;
 use OrangeHRM\Config\Config;
+use OrangeHRM\Core\Exception\KeyHandlerException;
+use OrangeHRM\Core\Utility\KeyHandler;
 use OrangeHRM\Core\Utility\PasswordHash;
 use OrangeHRM\Installer\Migration\V3_3_3\Migration;
 use OrangeHRM\Installer\Util\SystemConfig\SystemConfiguration;
@@ -61,6 +63,7 @@ class AppSetupUtility
             \OrangeHRM\Installer\Migration\V5_0_0\Migration::class,
         ],
         '5.1' => \OrangeHRM\Installer\Migration\V5_1_0\Migration::class,
+        '5.2' => \OrangeHRM\Installer\Migration\V5_2_0\Migration::class,
     ];
 
     public const INSTALLATION_DB_TYPE_NEW = 'new';
@@ -211,6 +214,7 @@ class AppSetupUtility
     {
         $this->insertCsrfKey();
         $this->insertOrganizationInfo();
+        $this->insertSubunitOrganizationName();
         $this->setDefaultLanguage();
         $this->insertAdminEmployee();
         $this->insertAdminUser();
@@ -235,6 +239,18 @@ class AppSetupUtility
             ])
             ->setParameter('name', $instanceData[StateContainer::INSTANCE_ORG_NAME])
             ->setParameter('countryCode', $instanceData[StateContainer::INSTANCE_COUNTRY_CODE])
+            ->executeQuery();
+    }
+
+    protected function insertSubunitOrganizationName(): void
+    {
+        $instanceData = StateContainer::getInstance()->getInstanceData();
+        Connection::getConnection()->createQueryBuilder()
+            ->update('ohrm_subunit', 'subunit')
+            ->set('subunit.name', ':organizationName')
+            ->setParameter('organizationName', $instanceData[StateContainer::INSTANCE_ORG_NAME])
+            ->andWhere('subunit.level = :topLevel')
+            ->setParameter('topLevel', 0)
             ->executeQuery();
     }
 
@@ -453,6 +469,15 @@ class AppSetupUtility
         $fs = new Filesystem();
         $fs->dumpFile(Config::get(Config::CONF_FILE_PATH), str_replace($search, $replace, $template));
         clearstatcache(true);
+    }
+
+    /**
+     * @throws KeyHandlerException
+     */
+    public function writeKeyFile(): void
+    {
+        $keyHandler = new KeyHandler();
+        $keyHandler::createKey();
     }
 
     /**
