@@ -98,6 +98,7 @@ Some steps can take long time to set (couple of hours)
 9. Installation Complete
 	Launch OrangeHRM
 	- Login with  provided username and password
+10. Config created in
 
 # Local instalation:
 for app name orangehrm-5.1/
@@ -222,8 +223,19 @@ Setup app under http://localhost/orangehrm-5.1/
 	- Commit: Logos changed
 	- Commit: JT routes updated
 	- Commit: JT Request enabled to check header
-7. Build
+  - Check for new routes to add POST where only PUT and DELETE exits
+## Upgrading
+1. Build
+2. Backup by rename Conf to C:\xampp\htdocs\orangehrm-5.1\lib\confs\Conf.php.example
+3. Enter main site: http://localhost/orangehrm-5.1
+4. Choose Upgrading and Existing Installation
+5. Choose proper old version
 
+# Tests
+1. In jt directory there is tests folder
+2. You can run postman collection
+3. TODO full POSTMAN collection
+4. TODO Full automation tests
 # Release
 1. Download repo from GH
 2. Unzip
