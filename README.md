@@ -114,7 +114,7 @@ for app name orangehrm-5.1/
         - ;extension=php_gd.dll
 
 3. Download app:
-    - https://github.com/orangehrm/orangehrm/releases/tag/v5.1
+    - https://github.com/orangehrm/orangehrm/releases/
     - unpack folder what is inside zip (orangehrm-5.1) to:
       - C:\xampp\htdocs
 
@@ -199,6 +199,12 @@ Setup app under http://localhost/orangehrm-5.1/
     - routes.yaml (adding POST where PUT and DELETE)
     - unprotected variables: protected $method; protected $headers = []; protected HttpRequest $httpRequest;
     - logo, favico and copy (see commit regarding this change)
+
+# Upgrading fork
+1. Download new release package zip https://github.com/orangehrm/orangehrm/releases/
+2. Unpack it 
+3. Make new branch with jt fork
+4. TODO
 
 # Release
 1. Download repo from GH
