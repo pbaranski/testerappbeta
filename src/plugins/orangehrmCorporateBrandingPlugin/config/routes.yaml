@@ -1,7 +1,7 @@
 apiv2_corporate_branding_theme:
   path: /api/v2/admin/theme
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT, DELETE ]
+  methods: [ GET, PUT, DELETE, POST ]
   defaults:
     _api: OrangeHRM\CorporateBranding\Api\ThemeAPI
     id: 0
