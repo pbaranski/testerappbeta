@@ -8,7 +8,7 @@ apiv2_maintenance_purge:
 apiv2_maintenance_purge_candidate:
   path: /api/v2/maintenance/candidates/purge
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ DELETE, POST ]
+  methods: [ DELETE ]
   defaults:
     _api: OrangeHRM\Maintenance\Api\PurgeCandidateAPI
 

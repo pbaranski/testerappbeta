@@ -32,7 +32,7 @@ class Request
     /**
      * @var HttpRequest
      */
-    public HttpRequest $httpRequest;
+    protected HttpRequest $httpRequest;
 
     /**
      * Request body parameters ($_POST)

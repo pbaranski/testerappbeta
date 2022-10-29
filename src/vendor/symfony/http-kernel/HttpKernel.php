@@ -70,12 +70,6 @@ class HttpKernel implements HttpKernelInterface, TerminableInterface
     {
         $request->headers->set('X-Php-Ob-Level', (string) ob_get_level());
 
-        $head = $request->headers->headers;
-        
-        if(isset($head['x-method'])){
-            $request->method = strtoupper($head['x-method'][0]);
-        }
-
         try {
             return $this->handleRaw($request, $type);
         } catch (\Exception $e) {

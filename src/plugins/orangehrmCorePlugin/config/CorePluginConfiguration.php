@@ -17,8 +17,12 @@
  * Boston, MA  02110-1301, USA
  */
 
+use OrangeHRM\Config\Config;
 use OrangeHRM\Core\Authorization\Helper\UserRoleManagerHelper;
 use OrangeHRM\Core\Authorization\Manager\UserRoleManagerFactory;
+use OrangeHRM\Core\Command\CacheCleanCommand;
+use OrangeHRM\Core\Command\EnableTestLanguagePackCommand;
+use OrangeHRM\Core\Command\RunScheduleCommand;
 use OrangeHRM\Core\Helper\ClassHelper;
 use OrangeHRM\Core\Registration\Subscriber\RegistrationEventPersistSubscriber;
 use OrangeHRM\Core\Registration\Subscriber\RegistrationEventPublishSubscriber;
@@ -26,8 +30,10 @@ use OrangeHRM\Core\Service\CacheService;
 use OrangeHRM\Core\Service\ConfigService;
 use OrangeHRM\Core\Service\DateTimeHelperService;
 use OrangeHRM\Core\Service\MenuService;
+use OrangeHRM\Core\Service\ModuleService;
 use OrangeHRM\Core\Service\NormalizerService;
 use OrangeHRM\Core\Service\NumberHelperService;
+use OrangeHRM\Core\Service\ReportGeneratorService;
 use OrangeHRM\Core\Service\TextHelperService;
 use OrangeHRM\Core\Subscriber\ApiAuthorizationSubscriber;
 use OrangeHRM\Core\Subscriber\ExceptionSubscriber;
@@ -40,6 +46,8 @@ use OrangeHRM\Core\Subscriber\ScreenAuthorizationSubscriber;
 use OrangeHRM\Core\Subscriber\SessionSubscriber;
 use OrangeHRM\Core\Traits\EventDispatcherTrait;
 use OrangeHRM\Core\Traits\ServiceContainerTrait;
+use OrangeHRM\Framework\Console\Console;
+use OrangeHRM\Framework\Console\ConsoleConfigurationInterface;
 use OrangeHRM\Framework\Http\Request;
 use OrangeHRM\Framework\Http\Session\NativeSessionStorage;
 use OrangeHRM\Framework\Http\Session\Session;
@@ -49,7 +57,7 @@ use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHa
 use Symfony\Component\HttpKernel\EventListener\SessionListener;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class CorePluginConfiguration implements PluginConfigurationInterface
+class CorePluginConfiguration implements PluginConfigurationInterface, ConsoleConfigurationInterface
 {
     use ServiceContainerTrait;
     use EventDispatcherTrait;
@@ -85,6 +93,8 @@ class CorePluginConfiguration implements PluginConfigurationInterface
         $this->getContainer()->register(Services::USER_ROLE_MANAGER_HELPER, UserRoleManagerHelper::class);
         $this->getContainer()->register(Services::CACHE)->setFactory([CacheService::class, 'getCache']);
         $this->getContainer()->register(Services::MENU_SERVICE, MenuService::class);
+        $this->getContainer()->register(Services::MODULE_SERVICE, ModuleService::class);
+        $this->getContainer()->register(Services::REPORT_GENERATOR_SERVICE, ReportGeneratorService::class);
 
         $this->registerCoreSubscribers();
     }
@@ -106,5 +116,17 @@ class CorePluginConfiguration implements PluginConfigurationInterface
         $this->getEventDispatcher()->addSubscriber(new RegistrationEventPersistSubscriber());
         $this->getEventDispatcher()->addSubscriber(new RegistrationEventPublishSubscriber());
         $this->getEventDispatcher()->addSubscriber(new GlobalConfigSubscriber());
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function registerCommands(Console $console): void
+    {
+        $console->add(new CacheCleanCommand());
+        $console->add(new RunScheduleCommand());
+        if (Config::PRODUCT_MODE !== Config::MODE_PROD) {
+            $console->add(new EnableTestLanguagePackCommand());
+        }
     }
 }
