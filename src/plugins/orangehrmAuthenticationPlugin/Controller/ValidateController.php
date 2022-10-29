@@ -24,6 +24,7 @@ use OrangeHRM\Authentication\Auth\User as AuthUser;
 use OrangeHRM\Authentication\Dto\AuthParams;
 use OrangeHRM\Authentication\Dto\UserCredential;
 use OrangeHRM\Authentication\Exception\AuthenticationException;
+use OrangeHRM\Authentication\Service\AuthenticationService;
 use OrangeHRM\Authentication\Service\LoginService;
 use OrangeHRM\Authentication\Traits\CsrfTokenManagerTrait;
 use OrangeHRM\Core\Authorization\Service\HomePageService;
@@ -48,6 +49,11 @@ class ValidateController extends AbstractController implements PublicControllerI
     public const PARAMETER_PASSWORD = 'password';
 
     /**
+     * @var AuthenticationService|null
+     */
+    protected ?AuthenticationService $authenticationService = null;
+
+    /**
      * @var null|LoginService
      */
     protected ?LoginService $loginService = null;
@@ -56,6 +62,17 @@ class ValidateController extends AbstractController implements PublicControllerI
      * @var HomePageService|null
      */
     protected ?HomePageService $homePageService = null;
+
+    /**
+     * @return AuthenticationService
+     */
+    public function getAuthenticationService(): AuthenticationService
+    {
+        if (!$this->authenticationService instanceof AuthenticationService) {
+            $this->authenticationService = new AuthenticationService();
+        }
+        return $this->authenticationService;
+    }
 
     /**
      * @return HomePageService
@@ -79,7 +96,8 @@ class ValidateController extends AbstractController implements PublicControllerI
         return $this->loginService;
     }
 
-    public function handle(Request $request): RedirectResponse
+
+    public function handle(Request $request)
     {
         $username = $request->request->get(self::PARAMETER_USERNAME, '');
         $password = $request->request->get(self::PARAMETER_PASSWORD, '');
@@ -132,8 +150,39 @@ class ValidateController extends AbstractController implements PublicControllerI
                 return new RedirectResponse($redirectUrl);
             }
         }
+        // Adding parameter api to form make simple response without redirection
+        if($request->request->get('api')){
+            $response = new Response();
+            return $response; 
+        } else {
 
         $homePagePath = $this->getHomePageService()->getHomePagePath();
         return $this->redirect($homePagePath);
+        }
+    }
+
+    public function token(Request $request)
+    {
+        $username = $request->request->get(self::PARAMETER_USERNAME, '');
+        $password = $request->request->get(self::PARAMETER_PASSWORD, '');
+        $credentials = new UserCredential($username, $password);
+        try {
+            
+            /** @var AuthProviderChain $authProviderChain */
+            $authProviderChain = $this->getContainer()->get(Services::AUTH_PROVIDER_CHAIN);
+            $success = $authProviderChain->authenticate(new AuthParams($credentials));
+
+            if (!$success) {
+                throw AuthenticationException::invalidCredentials();
+            }
+            $this->getAuthUser()->setIsAuthenticated($success);
+            $this->getLoginService()->addLogin($credentials);
+        } catch (AuthenticationException $e) {
+            $this->getAuthUser()->addFlash(AuthUser::FLASH_LOGIN_ERROR, $e->normalize());
+        }
+        $token = $this->getCsrfTokenManager()->getToken('login')->getValue(); 
+        $response = new Response();
+        return $response->setContent($token);
+
     }
 }
