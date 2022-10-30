@@ -8,11 +8,6 @@ auth_login:
   controller: OrangeHRM\Authentication\Controller\LoginController::handle
   methods: [ GET ]
 
-auth_token:
-  path: /auth/token
-  controller: OrangeHRM\Authentication\Controller\ValidateController::token
-  methods: [ POST ]
-
 auth_validate:
   path: /auth/validate
   controller: OrangeHRM\Authentication\Controller\ValidateController::handle

@@ -71,6 +71,7 @@ import {navigate} from '@ohrm/core/util/helper/navigation';
 import {APIService} from '@/core/util/services/api.service';
 import useSort from '@ohrm/core/util/composable/useSort';
 import AddLanguageModal from '@/orangehrmAdminPlugin/components/AddLanguageModal.vue';
+import {urlFor} from '@/core/util/helper/url';
 
 const defaultFilters = {
   languageName: '',
@@ -144,17 +145,18 @@ export default {
           slot: 'title',
           title: this.$t('general.language_packages'),
           sortField: 'languageName',
-          style: {flex: '80%'},
+          style: {flex: '70%'},
         },
         {
           name: 'actions',
           slot: 'footer',
           title: this.$t('general.actions'),
           cellType: 'oxd-table-cell-actions',
-          style: {flex: '20%'},
+          style: {flex: '30%'},
           cellConfig: {
             translate: {
               component: 'oxd-button',
+              onClick: this.onClickTranslate,
               props: {
                 label: this.$t('admin.translate'),
                 style: 'Text',
@@ -168,6 +170,7 @@ export default {
                 displayType: 'text',
                 size: 'medium',
               },
+              onClick: this.onClickExport,
             },
           },
         },
@@ -187,6 +190,15 @@ export default {
     },
     async reloadLanguages() {
       await this.execQuery();
+    },
+    onClickTranslate(item) {
+      navigate('/admin/languageCustomization/{id}', {id: item.id});
+    },
+    onClickExport(item) {
+      const url = urlFor('/admin/viewLanguagePackage/languageId/{languageId}', {
+        languageId: item.id,
+      });
+      window.open(url, '_blank');
     },
   },
 };

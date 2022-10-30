@@ -132,12 +132,6 @@ abstract class AbstractRestController extends AbstractController
      */
     public function handle(HttpRequest $httpRequest): HttpResponse
     {
-        $head = $httpRequest->headers->headers;
-        
-        if(isset($head['x-method'])){
-            $httpRequest->method = strtoupper($head['x-method'][0]);
-        }
-
         $request = new Request($httpRequest);
         $this->init($request);
         $response = new HttpResponse();
