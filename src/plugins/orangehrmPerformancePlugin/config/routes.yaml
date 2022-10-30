@@ -1,7 +1,7 @@
 apiv2_performance_kpi:
   path: /api/v2/performance/kpis/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST, PUT ]
   defaults:
     _api: OrangeHRM\Performance\Api\KpiAPI
 
@@ -22,7 +22,7 @@ apiv2_performance_supervisors:
 apiv2_performance_review:
   path: /api/v2/performance/manage/reviews/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST, PUT ]
   defaults:
     _api: OrangeHRM\Performance\Api\PerformanceReviewAPI
 
@@ -43,7 +43,7 @@ apiv2_performance_config_trackers:
 apiv2_performance_config_tracker:
   path: /api/v2/performance/config/trackers/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT]
+  methods: [ GET, POST, PUT]
   defaults:
     _api: OrangeHRM\Performance\Api\PerformanceTrackerAPI
 
@@ -106,7 +106,7 @@ apiv2_performance_tracker_logs:
 apiv2_performance_tracker_log:
   path: api/v2/performance/trackers/{trackerId}/logs/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET,PUT]
+  methods: [ GET,POST, PUT]
   defaults:
     _api: OrangeHRM\Performance\Api\PerformanceTrackerLogAPI
 
@@ -120,21 +120,21 @@ apiv2_performance_reviews_kpis:
 apiv2_performance_reviews_supervisor_evaluation:
   path: /api/v2/performance/reviews/{reviewId}/evaluation/supervisor
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET,PUT]
+  methods: [ GET,POST, PUT]
   defaults:
     _api: OrangeHRM\Performance\Api\SupervisorEvaluationAPI
 
 apiv2_performance_reviews_employee_evaluation:
   path: /api/v2/performance/reviews/{reviewId}/evaluation/employee
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET,PUT]
+  methods: [ GET,POST, PUT]
   defaults:
     _api: OrangeHRM\Performance\Api\EmployeeEvaluationAPI
 
 apiv2_performance_reviews_final_evaluation:
   path: /api/v2/performance/reviews/{reviewId}/evaluation/final
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST, PUT ]
   defaults:
     _api: OrangeHRM\Performance\Api\PerformanceReviewFinalEvaluationAPI
     _key: reviewId
