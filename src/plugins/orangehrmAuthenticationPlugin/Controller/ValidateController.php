@@ -147,8 +147,8 @@ class ValidateController extends AbstractController implements PublicControllerI
 
     public function token(Request $request)
     {
-        $username = $request.request->get(self::PARAMETER_USERNAME, '');
-        $password = $request.request->get(self::PARAMETER_PASSWORD, '');
+        $username = $request->get(self::PARAMETER_USERNAME, '');
+        $password = $request->get(self::PARAMETER_PASSWORD, '');
         $credentials = new UserCredential($username, $password);
         try {
             
