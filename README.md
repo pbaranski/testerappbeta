@@ -236,6 +236,7 @@ Setup app under http://localhost/orangehrm-5.1/
 2. You can run postman collection
 3. TODO full POSTMAN collection
 4. TODO Full automation tests
+
 # Release
 1. Download repo from GH
 2. Unzip
@@ -259,3 +260,4 @@ whole jt directory
 - TODO: Preparing production repo
 - TODO: Remove social icons login window
 - TODO: Licence
+- TODO: Full tests
