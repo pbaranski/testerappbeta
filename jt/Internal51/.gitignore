@@ -1,0 +1,17 @@
+.idea
+.vscode
+!.gitkeep
+lib/confs/Conf.php
+src/cache/*
+!src/cache/.gitkeep
+src/config/proxy/*
+!src/config/proxy/.gitkeep
+src/log/*
+!src/log/.gitkeep
+apidoc
+logInsatall.log
+.phpunit.result.cache
+coverage/
+src/plugins/orangehrmFunctionalTestingPlugin
+.php-cs-fixer.cache
+.php-cs-fixer.php
