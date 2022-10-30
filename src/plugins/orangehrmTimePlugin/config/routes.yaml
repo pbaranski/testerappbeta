@@ -1,7 +1,7 @@
 apiv2_time_project:
   path: /api/v2/time/projects/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST ]
   defaults:
     _api: OrangeHRM\Time\Api\ProjectAPI
     _key: id
@@ -9,7 +9,7 @@ apiv2_time_project:
 apiv2_time_projects:
   path: /api/v2/time/projects
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST, DELETE ]
+  methods: [ GET, POST]
   defaults:
     _api: OrangeHRM\Time\Api\ProjectAPI
 
@@ -24,7 +24,7 @@ apiv2_time_validate_project_name:
 apiv2_time_time_sheet_period_config:
   path: /api/v2/time/time-sheet-period
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST ]
   defaults:
     id: 0
     _api: OrangeHRM\Time\Api\TimeConfigPeriodAPI
@@ -32,14 +32,14 @@ apiv2_time_time_sheet_period_config:
 apiv2_time_customer:
   path: /api/v2/time/customers/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST ]
   defaults:
     _api: OrangeHRM\Time\Api\CustomerAPI
 
 apiv2_time_customers:
   path: /api/v2/time/customers
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST, DELETE ]
+  methods: [ GET, POST]
   defaults:
     _api: OrangeHRM\Time\Api\CustomerAPI
 
@@ -54,14 +54,14 @@ apiv2_time_validate_customer_name:
 apiv2_time_project_activities:
   path: /api/v2/time/project/{projectId}/activities
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST, DELETE ]
+  methods: [ GET, POST]
   defaults:
     _api: OrangeHRM\Time\Api\ProjectActivityAPI
 
 apiv2_time_project_activity:
   path: /api/v2/time/project/{projectId}/activities/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST ]
   defaults:
     _api: OrangeHRM\Time\Api\ProjectActivityAPI
 
@@ -83,7 +83,7 @@ apiv2_time_my_time_sheets:
 apiv2_time_my_time_sheet:
   path: /api/v2/time/timesheets/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ PUT ]
+  methods: [ POST ]
   defaults:
     _api: OrangeHRM\Time\Api\MyTimesheetAPI
 
@@ -97,7 +97,7 @@ apiv2_time_employee_time_sheets:
 apiv2_time_employee_time_sheet:
   path: /api/v2/time/employees/{empNumber}/timesheets/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ PUT ]
+  methods: [ POST ]
   defaults:
     _api: OrangeHRM\Time\Api\EmployeeTimesheetAPI
 
@@ -112,14 +112,14 @@ apiv2_time_default_time_sheet:
 apiv2_time_my_timesheets_entries:
   path: /api/v2/time/timesheets/{timesheetId}/entries
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST ]
   defaults:
     _api: OrangeHRM\Time\Api\MyTimesheetItemAPI
 
 apiv2_time_employees_timesheets_entries:
   path: /api/v2/time/employees/timesheets/{timesheetId}/entries
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, PUT ]
+  methods: [ GET, POST ]
   defaults:
     _api: OrangeHRM\Time\Api\EmployeeTimesheetItemAPI
 
@@ -141,7 +141,7 @@ apiv2_time_timesheet_project_activity_unique_validation:
 apiv2_time_my_timesheet_entries_comments:
   path: /api/v2/time/timesheets/{timesheetId}/entries/comment
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ PUT ]
+  methods: [ POST ]
   defaults:
     _api: OrangeHRM\Time\Api\TimesheetCommentAPI
 
