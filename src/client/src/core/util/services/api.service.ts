@@ -77,29 +77,51 @@ export class APIService {
   update(id: number, data: any): Promise<AxiosResponse> {
     const headers = {
       'Content-Type': 'application/json',
+      'x-method': 'PUT',
     };
-    return this._http.put(`${this._apiSection}/${id}`, data, {headers});
+    return this._http.post(`${this._apiSection}/${id}`, data, {headers});
   }
 
   delete(id: number): Promise<AxiosResponse> {
     const headers = {
       'Content-Type': 'application/json',
+      'x-method': 'DELETE',
     };
-    return this._http.delete(`${this._apiSection}/${id}`, {headers});
+    const data = {};
+    return this._http.post(`${this._apiSection}/${id}`, data, {headers});
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   deleteAll(data?: any): Promise<AxiosResponse> {
     const headers = {
       'Content-Type': 'application/json',
+      'x-method': 'DELETE',
     };
-    return this._http.delete(`${this._apiSection}`, {headers, data});
+    return this._http.post(`${this._apiSection}`, data, {headers});
   }
 
   request(options: AxiosRequestConfig): Promise<AxiosResponse> {
-    const headers = {
-      'Content-Type': 'application/json',
-    };
+    let head = {};
+    
+    if(options.method == 'PUT'){
+      head = {
+        'Content-Type': 'application/json',
+        'x-method': 'PUT',
+      };
+      options.method = 'POST';
+    } else if (options.method == 'DELETE') {
+      head = {
+        'Content-Type': 'application/json',
+        'x-method': 'DELETE',
+      };
+      options.method = 'POST';
+    } else {
+      head = {
+        'Content-Type': 'application/json',
+      };
+    }
+    
+    const headers = head;
     return this._http.request({
       url: this._apiSection,
       headers,

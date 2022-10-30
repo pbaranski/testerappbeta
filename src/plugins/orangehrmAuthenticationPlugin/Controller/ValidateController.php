@@ -33,6 +33,7 @@ use OrangeHRM\Core\Traits\Auth\AuthUserTrait;
 use OrangeHRM\Core\Traits\ServiceContainerTrait;
 use OrangeHRM\Framework\Http\RedirectResponse;
 use OrangeHRM\Framework\Http\Request;
+use OrangeHRM\Framework\Http\Response;
 use OrangeHRM\Framework\Http\Session\Session;
 use OrangeHRM\Framework\Routing\UrlGenerator;
 use OrangeHRM\Framework\Services;
@@ -79,7 +80,8 @@ class ValidateController extends AbstractController implements PublicControllerI
         return $this->loginService;
     }
 
-    public function handle(Request $request): RedirectResponse
+
+    public function handle(Request $request)
     {
         $username = $request->request->get(self::PARAMETER_USERNAME, '');
         $password = $request->request->get(self::PARAMETER_PASSWORD, '');
@@ -132,8 +134,38 @@ class ValidateController extends AbstractController implements PublicControllerI
                 return new RedirectResponse($redirectUrl);
             }
         }
+        // Adding parameter api to form make simple response without redirection
+        if($request->get('api')){
+            $response = new Response();
+            return $response; 
+        } else {
 
-        $homePagePath = $this->getHomePageService()->getHomePagePath();
-        return $this->redirect($homePagePath);
+            $homePagePath = $this->getHomePageService()->getHomePagePath();
+            return $this->redirect($homePagePath);
+        }
+    }
+
+    public function token(Request $request)
+    {
+        $username = $request.request->get(self::PARAMETER_USERNAME, '');
+        $password = $request.request->get(self::PARAMETER_PASSWORD, '');
+        $credentials = new UserCredential($username, $password);
+        try {
+            
+             /** @var AuthProviderChain $authProviderChain */
+             $authProviderChain = $this->getContainer()->get(Services::AUTH_PROVIDER_CHAIN);
+             $success = $authProviderChain->authenticate(new AuthParams($credentials));
+            if (!$success) {
+                throw AuthenticationException::invalidCredentials();
+            }
+            $this->getAuthUser()->setIsAuthenticated($success);
+            $this->getLoginService()->addLogin($credentials);
+        } catch (AuthenticationException $e) {
+            $this->getAuthUser()->addFlash(AuthUser::FLASH_LOGIN_ERROR, $e->normalize());
+        }
+        $token = $this->getCsrfTokenManager()->getToken('login')->getValue(); 
+        $response = new Response();
+        return $response->setContent($token);
+
     }
 }

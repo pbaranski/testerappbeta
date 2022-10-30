@@ -26,7 +26,7 @@ class HeaderBag implements \IteratorAggregate, \Countable
     /**
      * @var array<string, list<string|null>>
      */
-    protected $headers = [];
+    public $headers = [];
     protected $cacheControl = [];
 
     public function __construct(array $headers = [])
