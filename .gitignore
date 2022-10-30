@@ -1,9 +1,13 @@
 .idea
 .vscode
-lib/confs/
-src/cache/
-src/config/
-src/log/
+!.gitkeep
+lib/confs/Conf.php
+src/cache/*
+!src/cache/.gitkeep
+src/config/proxy/*
+!src/config/proxy/.gitkeep
+src/log/*
+!src/log/.gitkeep
 apidoc
 logInsatall.log
 .phpunit.result.cache
