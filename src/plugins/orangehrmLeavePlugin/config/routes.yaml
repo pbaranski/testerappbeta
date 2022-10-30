@@ -1,21 +1,21 @@
 apiv2_leave_holiday:
   path: /api/v2/leave/holidays/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\HolidayAPI
 
 apiv2_leave_holidays:
   path: /api/v2/leave/holidays
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Leave\Api\HolidayAPI
 
 apiv2_leave_workweek:
   path: /api/v2/leave/workweek
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\WorkWeekAPI
     id: 1
@@ -23,7 +23,7 @@ apiv2_leave_workweek:
 apiv2_leave_leave_period:
   path: /api/v2/leave/leave-period
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\LeavePeriodAPI
     id: 0
@@ -38,7 +38,7 @@ apiv2_leave_leave_periods:
 apiv2_leave_leave_type:
   path: /api/v2/leave/leave-types/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\LeaveTypeAPI
   requirements:
@@ -47,28 +47,28 @@ apiv2_leave_leave_type:
 apiv2_leave_leave_types:
   path: /api/v2/leave/leave-types
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Leave\Api\LeaveTypeAPI
 
 apiv2_leave_eligible_leave_types:
   path: /api/v2/leave/leave-types/eligible
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Leave\Api\EligibleLeaveTypeAPI
 
 apiv2_leave_my_leave_requests:
   path: /api/v2/leave/leave-requests
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Leave\Api\MyLeaveRequestAPI
 
 apiv2_leave_my_leave_request:
   path: /api/v2/leave/leave-requests/{leaveRequestId}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\MyLeaveRequestAPI
     _key: leaveRequestId
@@ -78,14 +78,14 @@ apiv2_leave_my_leave_request:
 apiv2_leave_employee_leave_requests:
   path: /api/v2/leave/employees/leave-requests
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Leave\Api\EmployeeLeaveRequestAPI
 
 apiv2_leave_employee_leave_request:
   path: /api/v2/leave/employees/leave-requests/{leaveRequestId}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\EmployeeLeaveRequestAPI
   requirements:
@@ -94,14 +94,14 @@ apiv2_leave_employee_leave_request:
 apiv2_leave_employees_bulk_leave_request:
   path: /api/v2/leave/employees/leave-requests/bulk
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\EmployeeBulkLeaveRequestAPI
 
 apiv2_leave_leave_entitlement:
   path: /api/v2/leave/leave-entitlements/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\LeaveEntitlementAPI
   requirements:
@@ -110,7 +110,7 @@ apiv2_leave_leave_entitlement:
 apiv2_leave_leave_entitlements:
   path: /api/v2/leave/leave-entitlements
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Leave\Api\LeaveEntitlementAPI
 
@@ -177,7 +177,7 @@ apiv2_leave_leaves:
 apiv2_leave_leave:
   path: /api/v2/leave/leaves/{leaveId}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\LeaveAPI
     _key: leaveId
@@ -187,7 +187,7 @@ apiv2_leave_leave:
 apiv2_leave_bulk_leaves:
   path: /api/v2/leave/leaves/bulk
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Leave\Api\BulkLeaveAPI
 

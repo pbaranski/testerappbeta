@@ -1,21 +1,21 @@
 apiv2_admin_job_title:
   path: /api/v2/admin/job-titles/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\JobTitleAPI
 
 apiv2_admin_job_titles:
   path: /api/v2/admin/job-titles
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\JobTitleAPI
 
 apiv2_admin_job_specification:
   path: /api/v2/admin/job-titles/{jobTitleId}/specification
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, PUT, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\JobSpecificationAPI
     _key: jobTitleId
@@ -23,35 +23,35 @@ apiv2_admin_job_specification:
 apiv2_admin_job_category:
   path: /api/v2/admin/job-categories/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\JobCategoryAPI
 
 apiv2_admin_job_categories:
   path: /api/v2/admin/job-categories
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\JobCategoryAPI
 
 apiv2_admin_user:
   path: /api/v2/admin/users/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\UserAPI
 
 apiv2_admin_users:
   path: /api/v2/admin/users
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\UserAPI
 
 apiv2_admin_subunit:
   path: /api/v2/admin/subunits/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, PUT, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\SubunitAPI
 
@@ -65,91 +65,91 @@ apiv2_admin_subunits:
 apiv2_admin_employment_status:
   path: /api/v2/admin/employment-statuses/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\EmploymentStatusAPI
 
 apiv2_admin_employment_statuses:
   path: /api/v2/admin/employment-statuses
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\EmploymentStatusAPI
 
 apiv2_education:
   path: /api/v2/admin/educations/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\EducationAPI
 
 apiv2_educations:
   path: /api/v2/admin/educations
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\EducationAPI
 
 apiv2_admin_skill:
   path: /api/v2/admin/skills/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\SkillAPI
 
 apiv2_admin_skills:
   path: /api/v2/admin/skills
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\SkillAPI
 
 apiv2_license:
   path: /api/v2/admin/licenses/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\LicenseAPI
 
 apiv2_licenses:
   path: /api/v2/admin/licenses
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\LicenseAPI
 
 apiv2_admin_language:
   path: /api/v2/admin/languages/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\LanguageAPI
 
 apiv2_admin_languages:
   path: /api/v2/admin/languages
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\LanguageAPI
 
 apiv2_admin_membership:
   path: /api/v2/admin/memberships/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\MembershipAPI
 
 apiv2_admin_memberships:
   path: /api/v2/admin/memberships
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\MembershipAPI
 
 apiv2_organization:
   path: /api/v2/admin/organization
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     id: 0
     _api: OrangeHRM\Admin\Api\OrganizationAPI
@@ -164,35 +164,35 @@ apiv2_admin_pay_grade_allowed_currencies:
 apiv2_admin_paygrades_currency:
   path: /api/v2/admin/pay-grades/{payGradeId}/currencies/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\PayGradeCurrencyAPI
 
 apiv2_admin_paygrades_currencies:
   path: /api/v2/admin/pay-grades/{payGradeId}/currencies
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\PayGradeCurrencyAPI
 
 apiv2_admin_nationality:
   path: /api/v2/admin/nationalities/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\NationalityAPI
 
 apiv2_admin_nationalities:
   path: /api/v2/admin/nationalities
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\NationalityAPI
 
 apiv2_admin_email_configuration:
   path: /api/v2/admin/email-configuration
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     id: 0
     _api: OrangeHRM\Admin\Api\EmailConfigurationAPI
@@ -200,7 +200,7 @@ apiv2_admin_email_configuration:
 apiv2_admin_work_shift:
   path: /api/v2/admin/work-shifts/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\WorkShiftAPI
   requirements:
@@ -209,7 +209,7 @@ apiv2_admin_work_shift:
 apiv2_admin_work_shifts:
   path: /api/v2/admin/work-shifts
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\WorkShiftAPI
 
@@ -223,42 +223,42 @@ apiv2_admin_work_shifts_employee:
 apiv2_admin_location:
   path: /api/v2/admin/locations/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\LocationAPI
 
 apiv2_admin_locations:
   path: /api/v2/admin/locations
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\LocationAPI
 
 apiv2_admin_modules:
   path: /api/v2/admin/modules
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\ModulesAPI
 
 apiv2_admin_pay_grades:
   path: /api/v2/admin/pay-grades
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\PayGradeAPI
 
 apiv2_admin_pay_grade:
   path: /api/v2/admin/pay-grades/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\PayGradeAPI
 
 apiv2_admin_email_subscription:
   path: /api/v2/admin/email-subscriptions/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\EmailSubscriptionAPI
 
@@ -272,14 +272,14 @@ apiv2_admin_email_subscriptions:
 apiv2_admin_email_subscribers:
   path: /api/v2/admin/email-subscriptions/{emailSubscriptionId}/subscribers
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST]
+  methods: [ GET, POST, DELETE ]
   defaults:
     _api: OrangeHRM\Admin\Api\EmailSubscriberAPI
 
 apiv2_admin_email_subscriber:
   path: /api/v2/admin/email-subscriptions/{emailSubscriptionId}/subscribers/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\EmailSubscriberAPI
 
@@ -294,7 +294,7 @@ apiv2_admin_validate_user_name:
 apiv2_admin_localization:
   path: /api/v2/admin/localization
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ GET, POST ]
+  methods: [ GET, PUT ]
   defaults:
     id: 0
     _api: OrangeHRM\Admin\Api\LocalizationAPI
@@ -309,7 +309,7 @@ apiv2_admin_i18n_languages:
 apiv2_admin_i18n_language:
   path: /api/v2/admin/i18n/languages/{id}
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\I18NLanguageAPI
 
@@ -323,7 +323,7 @@ apiv2_admin_i18n_language_translations:
 apiv2_admin_i18n_language_bulk_translations:
   path: /api/v2/admin/i18n/languages/{languageId}/translations/bulk
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ PUT ]
   defaults:
     _api: OrangeHRM\Admin\Api\I18NTranslationBulkAPI
 

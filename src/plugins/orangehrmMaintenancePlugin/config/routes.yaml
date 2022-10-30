@@ -1,14 +1,14 @@
 apiv2_maintenance_purge:
   path: /api/v2/maintenance/purge
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [POST]
+  methods: [DELETE]
   defaults:
     _api: OrangeHRM\Maintenance\Api\PurgeEmployeeAPI
 
 apiv2_maintenance_purge_candidate:
   path: /api/v2/maintenance/candidates/purge
   controller: OrangeHRM\Core\Controller\Rest\V2\GenericRestController::handle
-  methods: [ POST ]
+  methods: [ DELETE ]
   defaults:
     _api: OrangeHRM\Maintenance\Api\PurgeCandidateAPI
 
