@@ -30,16 +30,10 @@ Upskill testing skills in enterprise app with free deploy
 11. Click Online `File Manager`
 12. Go to htdocs
 13. Upload via `Fetch file` (bottom menu, 3th from left, cloud with down arrow): 
-	- For 5.1   
-		- urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-0.zip?raw=true  
-		- urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-1.zip?raw=true  
-		- urls: https://github.com/pbaranski/testerappbeta/blob/main/jt/ta-2.zip?raw=true  
-		- urls: https://raw.githubusercontent.com/pbaranski/testerappbeta/main/jt/uz.php
-	- For 5.2
-		- https://github.com/pbaranski/testerappbeta/blob/hrm-52-v2-upgrade/jt/ta52-release/ta-0.zip?raw=true
-		- https://github.com/pbaranski/testerappbeta/blob/hrm-52-v2-upgrade/jt/ta52-release/ta-1.zip?raw=true
-		- https://github.com/pbaranski/testerappbeta/blob/hrm-52-v2-upgrade/jt/ta52-release/ta-2.zip?raw=true
-		- urls: https://raw.githubusercontent.com/pbaranski/testerappbeta/main/jt/uz.php
+	- https://github.com/pbaranski/testerappbeta/blob/hrm-52-v2-upgrade/jt/ta52-release/ta-0.zip?raw=true
+	- https://github.com/pbaranski/testerappbeta/blob/hrm-52-v2-upgrade/jt/ta52-release/ta-1.zip?raw=true
+	- https://github.com/pbaranski/testerappbeta/blob/hrm-52-v2-upgrade/jt/ta52-release/ta-2.zip?raw=true
+	- urls: https://raw.githubusercontent.com/pbaranski/testerappbeta/main/jt/uz.php
 14. Go to unzziper page: http://[app url]/uz.php
 	-  if page do not show up you need wait for dns resolution (up to 72h)
 15. Click unzip `ta-0` and wait till green header appear with file name 
