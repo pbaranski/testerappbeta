@@ -54,10 +54,10 @@ class I18NMessagesController extends AbstractFileController implements PublicCon
         $response = $this->getResponse();
         $response->setEtag($this->getI18NService()->getETagByLangCode($locale));
 
-        if (!$response->isNotModified($request)) {
+        // if (!$response->isNotModified($request)) {
             $response->setContent($this->getI18NService()->getTranslationMessagesAsJsonString($locale));
             $this->setCommonHeaders($response, 'application/json');
-        }
+        // }
 
         return $response;
     }
