@@ -116,10 +116,10 @@ export default {
     onSave() {
       this.isLoading = true;
       this.http.http
-        .put('api/v2/admin/localization', {
+        .post('api/v2/admin/localization', {
           language: this.configuration.language?.id,
           dateFormat: this.configuration.dateFormat?.id,
-        })
+        },{headers:{'x-method': 'PUT'}})
         .then(() => {
           return this.$toast.updateSuccess();
         })

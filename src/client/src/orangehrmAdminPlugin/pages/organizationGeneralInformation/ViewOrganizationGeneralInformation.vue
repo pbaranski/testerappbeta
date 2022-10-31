@@ -296,7 +296,7 @@ export default {
     onSave() {
       this.isLoading = true;
       this.http.http
-        .put('api/v2/admin/organization', {
+        .post('api/v2/admin/organization', {
           name: this.organization.name,
           registrationNumber: this.organization.registrationNumber,
           taxId: this.organization.taxId,
@@ -310,7 +310,7 @@ export default {
           country: this.organization.country?.id,
           zipCode: this.organization.zipCode,
           note: this.organization.note,
-        })
+        },{headers:{'x-method': 'PUT'}})
         .then(() => {
           return this.$toast.updateSuccess();
         })

@@ -125,10 +125,10 @@ export default {
     onSave() {
       this.isLoading = true;
       this.http.http
-        .put('api/v2/pim/update-password', {
+        .post('api/v2/pim/update-password', {
           currentPassword: this.user.currentPassword,
           newPassword: this.user.password,
-        })
+        },{headers:{'x-method': 'PUT'}})
         .then(response => {
           if (response.status === 200) {
             this.$toast.saveSuccess();
